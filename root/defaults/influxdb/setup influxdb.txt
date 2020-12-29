@@ -1,0 +1,15 @@
+create user:
+
+CREATE USER changeme WITH PASSWORD 'changeme' WITH ALL PRIVILEGES
+
+test connection:
+
+influx -ssl -unsafeSsl
+
+connect with user and password:
+
+influx -username telegraf -password telegraf -ssl -unsafeSsl
+
+use DB:
+
+use dbname

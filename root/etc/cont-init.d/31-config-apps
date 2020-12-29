@@ -1,0 +1,65 @@
+#!/usr/bin/with-contenv bash
+
+#mkdir -p /config/chronograf
+
+ln -s /var/lib/chronograf /config/chronografdb
+ln -s /usr/share/chronograf /config/chronograf
+
+# if exists
+#if [ ! -f /config/influxdb/influxdb.conf ]; then
+#echo "influxdb not found in config folder... copying it from /temp. This is normal when you start this container for the first time"
+#cp -R /defaults/influxdb /config
+#create influxdb user
+#curl -XPOST "http://localhost:8086/query" --data-urlencode "q=CREATE USER MIUSUARIO WITH PASSWORD 'AQUITUPASSWORD' WITH ALL PRIVILEGES"
+#else
+#echo "influxdb.conf exists.."
+#fi
+
+# if exists
+#if [ ! -f /config/telegraf/telegraf.conf ]; then
+#echo "telegraf.conf not found in config folder.. copying it from /temp. This is normal when you start this container for the first time"
+#cp -R /defaults/telegraf /config
+#else
+#echo "telegraf.conf exists.."
+#fi
+
+#sed -i "s|:8086|:$INFLUXDB_HTTP_PORT|g" '/config/influxdb/influxdb.conf'
+#sed -i "s|:8088|:$INFLUXDB_RPC_PORT|g" '/config/influxdb/influxdb.conf'
+#echo '[info] influxdb fixed.'
+
+# if exists
+#if [ ! -f /config/grafana/conf/grafana.ini ]; then
+#echo "not exists"
+#cp -R /usr/share/grafana/conf /config/grafana
+
+#cp /defaults/grafana.ini /config/grafana/conf/grafana.ini
+#cp '/defaults/DO NOT EDIT defaults.ini.info' '/config/grafana/conf/DO NOT EDIT defaults.ini.info'
+#cp '/defaults/HowToGrafanaCli.info' '/config/grafana/conf/HowToGrafanaCli.info'
+#cp -R /usr/share/grafana/conf/provisioning /config/grafana/conf
+#cp -R /usr/share/grafana/conf/defaults.ini /config/grafana/conf/defaults.ini
+#cp -R /usr/share/grafana/public /config/grafana/public
+# ln -s /usr/share/grafana/public /config/grafana/public
+#else
+#echo "grafana defaults.ini exists"
+#fi	
+
+echo "#########################"
+echo "Check /config or bind folder on host for log files."
+echo "#########################"
+
+# if exists
+#if [ ! -f /config/www/noVNC/vnc.html ]; then
+#echo "not exists"
+#cp -R /somedir /some/dir
+#else
+#echo " exists"
+#fi	
+
+# fix permissions
+chown -R abc:abc \
+	/config \
+	/var/lib/chronograf \
+	/usr/share/chronograf
+
+# clean temp folder
+#rm -rf /temp
