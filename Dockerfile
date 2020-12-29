@@ -1,5 +1,5 @@
 # Runtime stage
-FROM ubuntu-base
+FROM thies88/ubuntu-base
 
 #Env vars
 ARG BUILD_DATE
@@ -26,10 +26,6 @@ KAPACITOR_PASSWORD=""
 
 # --basepath=/config/chronograf -b /config/chronograf/chronograf-v1.db -c /usr/share/chronograf/canned
 ENV APP1="chronograf --host=${HOST} --port=${PORT} -b /var/lib/chronograf/chronograf-v1.db -c /usr/share/chronograf/canned --cert=/config/keys/cert.crt --key=/config/keys/cert.key "
-#ENV APP1="influxd run -config /config/influxdb/influxdb.conf -pidfile=/config/influxdb/influxd.pid 2>/config/influxdb/logs/influxd.log"
-#ENV APP2="telegraf --config /config/telegraf/telegraf.conf --config-directory /config/telegraf/telegraf.d --pidfile /config/telegraf/telegraf.pid"
-#ENV APP3="grafana-server -config /config/grafana/conf/grafana.ini -homepath /config/grafana -pidfile /config/grafana/grafana.pid"
-#App path close with an / example: /usr/bin/
 
 RUN \
  echo "**** install application and needed packages ****" && \
