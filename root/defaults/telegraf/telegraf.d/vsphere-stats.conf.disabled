@@ -3,9 +3,9 @@
 ## List of vCenter URLs to be monitored. These three lines must be uncommented
 ## and edited for the plugin to work.
 interval = "20s"
-  vcenters = [ "https://192.168.5.240/sdk" ]
+  vcenters = [ "https://192.168.1.1/sdk" ]
   username = "metrics@vsphere.local"
-  password = "Testen01!"
+  password = "changeme"
 
 vm_metric_include = []
 host_metric_include = []
@@ -19,9 +19,9 @@ insecure_skip_verify = true
 ## Historical instance
 [[inputs.vsphere]]
 interval = "300s"
-  vcenters = [ "https://192.168.5.240/sdk" ]
+  vcenters = [ "https://192.168.1.1/sdk" ]
   username = "metrics@vsphere.local"
-  password = "Testen01!"
+  password = "changeme"
 
   datastore_metric_include = [ "disk.capacity.latest", "disk.used.latest", "disk.provisioned.latest"]
   insecure_skip_verify = true
